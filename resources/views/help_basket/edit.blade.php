@@ -5,19 +5,19 @@
 @include('help_basket.nav')
 <h3 class="mb-3">Actualizar Datos Receptor Canasta Familiar</h3>
 
-<form method="POST" class="form-horizontal" action="{{ route('help_basket.update',$helpBasket)  }}" enctype="multipart/form-data" name="for_update" >
+<form method="POST" class="form-horizontal" action="{{ route('help_basket.update',$helpBasket)  }}" enctype="multipart/form-data" name="for_update">
     @csrf
     @method('PUT')
 
     <div class="form-row">
         <fieldset class="form-group col-md-2">
             <label for="for_run">Run (sin digito)</label>
-            <input type="number" class="form-control" name="run" autocomplete="off" id="for_run" value ="{{$helpBasket->run}}">
+            <input type="number" class="form-control" name="run" autocomplete="off" id="for_run" value="{{$helpBasket->run}}">
         </fieldset>
 
         <fieldset class="form-group col-2 col-md-1">
             <label for="for_dv">Digito</label>
-            <input type="text" class="form-control" name="dv" id="for_dv" value ="{{$helpBasket->dv}}">
+            <input type="text" class="form-control" name="dv" id="for_dv" value="{{$helpBasket->dv}}">
         </fieldset>
 
         <fieldset class="form-group col- col-md-1">
@@ -32,7 +32,7 @@
 
         <fieldset class="form-group col-md-3">
             <label for="for_other_identification">Otra identificación</label>
-            <input type="text" class="form-control" name="other_identification" id="for_other_identification" placeholder="Digitar en caso de extranjeros" value ="{{$helpBasket->other_identification}}">
+            <input type="text" class="form-control" name="other_identification" id="for_other_identification" placeholder="Digitar en caso de extranjeros" value="{{$helpBasket->other_identification}}">
         </fieldset>
 
     </div>
@@ -40,17 +40,17 @@
 
         <fieldset class="form-group col-md-3">
             <label for="for_name">Nombre *</label>
-            <input type="text" class="form-control" name="name" id="for_name" required autocomplete="off" value ="{{$helpBasket->name}}" style="text-transform: uppercase;">
+            <input type="text" class="form-control" name="name" id="for_name" required autocomplete="off" value="{{$helpBasket->name}}" style="text-transform: uppercase;">
         </fieldset>
 
         <fieldset class="form-group col-md-2">
             <label for="for_fathers_family">Apellido Paterno *</label>
-            <input type="text" class="form-control" name="fathers_family" id="for_fathers_family" required value ="{{$helpBasket->fathers_family}}" style="text-transform: uppercase;">
+            <input type="text" class="form-control" name="fathers_family" id="for_fathers_family" required value="{{$helpBasket->fathers_family}}" style="text-transform: uppercase;">
         </fieldset>
 
         <fieldset class="form-group col-md-2">
             <label for="for_mothers_family">Apellido Materno</label>
-            <input type="text" class="form-control" name="mothers_family" id="for_mothers_family" value ="{{$helpBasket->mothers_family}}" style="text-transform: uppercase;">
+            <input type="text" class="form-control" name="mothers_family" id="for_mothers_family" value="{{$helpBasket->mothers_family}}" style="text-transform: uppercase;">
         </fieldset>
     </div>
 
@@ -58,31 +58,31 @@
     <div class="form-row">
         <fieldset class="form-group col-12 col-md-2">
             <label for="for_street_type">Vía de residencia</label>
-            <select name="street_type" id="for_street_type" class="form-control" class="geo">  
+            <select name="street_type" id="for_street_type" class="form-control" class="geo">
                 <option value="Calle" {{ ($helpBasket->street_type == 'Calle')?'selected':'' }}>Calle</option>
                 <option value="Pasaje" {{ ($helpBasket->street_type == 'Pasaje')?'selected':'' }}>Pasaje</option>
                 <option value="Avenida" {{ ($helpBasket->street_type == 'Avenida')?'selected':'' }}>Avenida</option>
                 <option value="Camino" {{ ($helpBasket->street_type == 'Camino')?'selected':'' }}>Camino</option>
 
 
-                
+
             </select>
         </fieldset>
 
         <fieldset class="form-group col-12 col-md-4">
             <label for="for_address">Dirección *</label>
-            <input type="text" class="form-control geo" name="address" id="for_address" required autocomplete="off" value ="{{$helpBasket->address}}" style="text-transform: uppercase;">
+            <input type="text" class="form-control geo" name="address" id="for_address" required autocomplete="off" value="{{$helpBasket->address}}" style="text-transform: uppercase;">
         </fieldset>
 
 
         <fieldset class="form-group col-6 col-md-2">
             <label for="for_number">Número</label>
-            <input type="text" class="form-control geo" name="number" id="for_number" autocomplete="off" value ="{{$helpBasket->number}}">
+            <input type="text" class="form-control geo" name="number" id="for_number" autocomplete="off" value="{{$helpBasket->number}}">
         </fieldset>
 
         <fieldset class="form-group col-6 col-md-1">
             <label for="for_department">Depto.</label>
-            <input type="text" class="form-control" name="department" id="for_department" value ="{{$helpBasket->department}}">
+            <input type="text" class="form-control" name="department" id="for_department" value="{{$helpBasket->department}}">
         </fieldset>
     </div>
 
@@ -92,7 +92,7 @@
         <fieldset class="form-group col-4 col-md-3">
             <label for="comunas">Comuna *</label>
             <select class="form-control geo" name="commune_id" id="comunas" required>
-            <option value="">Seleccione Comuna</option>
+                <option value="">Seleccione Comuna</option>
                 @foreach($communes as $commune)
                 <option value="{{ $commune->id }}" {{($helpBasket->commune_id == $commune->id) ? 'selected': ''}}>{{ $commune->name }}</option>
                 @endforeach
@@ -102,34 +102,34 @@
 
         <fieldset class="form-group col-4 col-md-3">
             <label for="for_department">Telefono.</label>
-            <input type="text" class="form-control" name="telephone" id="for_telephone" value ="{{$helpBasket->telephone}}">
+            <input type="text" class="form-control" name="telephone" id="for_telephone" value="{{$helpBasket->telephone}}">
         </fieldset>
     </div>
 
     <div class="form-row">
         <fieldset class="form-group col-6 col-md-2">
             <label for="for_latitude">Latitud</label>
-            <input type="number" step="00.00000001" class="form-control" name="latitude" id="for_latitude" readonly value ="{{$helpBasket->latitude}}">
+            <input type="number" step="00.00000001" class="form-control" name="latitude" id="for_latitude" readonly value="{{$helpBasket->latitude}}">
         </fieldset>
 
         <fieldset class="form-group col-6 col-md-2">
             <label for="for_longitude">Longitud</label>
-            <input type="number" step="00.00000001" class="form-control" name="longitude" id="for_longitude" readonly value ="{{$helpBasket->longitude}}">
+            <input type="number" step="00.00000001" class="form-control" name="longitude" id="for_longitude" readonly value="{{$helpBasket->longitude}}">
         </fieldset>
     </div>
     <hr>
 
     @if($helpBasket->photoid)
     Foto Cédula
-    <br>    
+    <br>
     <img src="{{ route('help_basket.download', $helpBasket->photoid)  }}" width="300" height="200" />
     @endif
     <div class="form-row">
         <fieldset class="form-group col-12 col-md-3">
             <label for="for_photoid">Cargar Nueva Foto Cédula</label>
             <div class="custom-file">
-                <input type="file" name="photoid" class="custom-file-input" id="customFileLang" lang="es" >
-                <label class="custom-file-label" for="customFileLang">Seleccionar Foto Cédula</label>
+                <input type="file" name="photoid" class="custom-file-input size" id="for_photoid"  id="customFileLang" lang="es">
+                <label class="custom-file-label" id="label_photoid" for="customFileLang">Seleccionar Foto Cédula</label>
             </div>
         </fieldset>
     </div>
@@ -139,15 +139,15 @@
 
     @if($helpBasket->photo)
     Foto Frontal
-    <br>    
+    <br>
     <img src="{{ route('help_basket.download', $helpBasket->photo)  }}" width="300" height="200" />
     @endif
     <div class="form-row">
         <fieldset class="form-group col-12 col-md-3">
             <label for="for_photo">Cargar Nueva Foto Frontal</label>
             <div class="custom-file">
-                <input type="file" name="photo" class="custom-file-input" id="customFileLang" lang="es" >
-                <label class="custom-file-label" for="customFileLang">Seleccionar Foto Frontal</label>
+                <input type="file" name="photo" class="custom-file-input" id="for_photo" lang="es">
+                <label class="custom-file-label" id="label_photo" for="customFileLang">Seleccionar Foto Frontal</label>
             </div>
         </fieldset>
     </div>
@@ -242,6 +242,16 @@
 
         });
 
+        $('#for_photoid').change(function(e) {
+            var fileName = e.target.files[0].name;
+            $('#label_photoid').html(fileName);
+        });
+
+
+        $('#for_photo').change(function(e) {
+            var fileName = e.target.files[0].name;
+            $('#label_photo').html(fileName);
+        });
 
     });
 </script>
