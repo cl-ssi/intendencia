@@ -19,14 +19,14 @@
                     <img src="{{ asset('images/esmeralda.png') }}" width="300" alt="Foto de la esmeralda">
 
                 </div>
-                <div class="card-footer text-muted text-center">
+                <!-- <div class="card-footer text-muted text-center">
                     {{ env('INFO_HOME','Configurar variable INFO_HOME en .env') }}
                     <hr>
                     Sistema desarrollado por el Área de Informática del
                     Servicio de Salud de Iquique
                     <a href="mailto:sistemas.ssi@redsalud.gob.cl">
                         sistemas.ssi@redsalud.gob.cl
-                    </a>
+                    </a> -->
 
                 </div>
             </div>

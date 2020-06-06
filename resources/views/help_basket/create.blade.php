@@ -10,7 +10,7 @@
     @method('POST')
 
     <div class="form-row">
-        <fieldset class="form-group col-md-2">
+        <fieldset class="form-group col-10 col-md-2">
             <label for="for_run">Run (sin digito)</label>
             <input type="number" class="form-control" name="run" autocomplete="off" id="for_run" style="text-transform: uppercase;">
         </fieldset>
@@ -20,7 +20,7 @@
             <input type="text" class="form-control" name="dv" id="for_dv" style="text-transform: uppercase;">
         </fieldset>
 
-        <fieldset class="form-group col- col-md-1">
+        <fieldset lass="form-group col- col-md-1">
             <label for="">&nbsp;</label>
             <!-- <button type="button" id="btn_fonasa" class="btn btn-outline-success">Buscar Datos&nbsp;</button> -->
         </fieldset>
@@ -86,7 +86,7 @@
 
     <div class="form-row">
 
-        <fieldset class="form-group col-8 col-md-3">
+        <fieldset class="form-group col-6 col-md-3">
             <label for="comunas">Comuna *</label>
             <select class="form-control geo" name="commune_id" id="comunas" required>
                 <option value="">Seleccione la comuna</option>
@@ -96,7 +96,7 @@
             </select>
         </fieldset>
 
-        <fieldset class="form-group col-4 col-md-3">
+        <fieldset class="form-group col-6 col-md-3">
             <label for="for_department">Telefono.</label>
             <input type="text" class="form-control" name="telephone" id="for_telephone">
         </fieldset>
@@ -221,16 +221,19 @@
             }
 
         });
-    
+
+
+
+        /*$('.size').bind('change', function() {
+                alert('El tamaño es: ' + this.files[0].size/1024/1024 + "MB");
+        });*/
 
     
-    /*$('.size').bind('change', function() {
-            alert('El tamaño es: ' + this.files[0].size/1024/1024 + "MB");
-    });*/
-    
+        $('input[type="file"]').change(function(e) {
+        var fileName = e.target.files[0].name;
+        $('.custom-file-label').html(fileName);
 
-
-
+    });
 
 
 

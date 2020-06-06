@@ -192,6 +192,20 @@ class HelpBasketController extends Controller
     public function destroy(HelpBasket $helpBasket)
     {
         //
+
+            
+        if($helpBasket->photo)
+        {
+        Storage::disk('local')->delete($helpBasket->photo);
+        }
+        
+
+        if ($helpBasket->photoid)
+        {
+        Storage::disk('local')->delete($helpBasket->photoid);
+        }
+        
+
         $helpBasket->delete();
         session()->flash('success', 'Entrega de Canaste Eliminada Exitosamente');
         return redirect()->route('help_basket.index');
