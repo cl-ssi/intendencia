@@ -86,17 +86,17 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Monitor Esmeralda
+                    Entrega de Canastas
                 </div>
 
                 <div class="servicio m-b-md">
-                    {{ env('SERVICIO','Configurar variable SERVICIO en .env') }}
+                    <!-- {{ env('SERVICIO','Configurar variable SERVICIO en .env') }} -->
                 </div>
 
-                <div class="links">
+                <!-- <div class="links">
                     <a href="https://www.minsal.cl">Minsal</a>
                     <a href="https://www.gob.cl/coronavirus/casosconfirmados/">Coronavirus Casos Confirmados</a>
-                </div>
+                </div> -->
 
                 <br> <br>
 
