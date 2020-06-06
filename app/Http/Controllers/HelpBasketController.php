@@ -16,10 +16,10 @@ class HelpBasketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $helpbaskets = HelpBasket::orderByDesc('updated_at')->get();;
+        $helpbaskets = HelpBasket::search($request->input('search'))->orderByDesc('updated_at')->paginate(100);
         return view('help_basket.index', compact('helpbaskets'));
     }
 

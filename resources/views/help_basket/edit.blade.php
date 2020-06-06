@@ -198,7 +198,7 @@
         jQuery('.geo').change(function() {
             // Instantiate a map and platform object:
             var platform = new H.service.Platform({
-                'apikey': '5mKawERqnzL1KMnNIt4n42gAV8eLomjQPKf5S5AAcZg'
+                'apikey': 'gRakctSbQ_NGSWG8xqc3wLDBclDLxijx57pUpAopJR0'
             });
 
             var address = jQuery('#for_address').val();
