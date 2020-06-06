@@ -118,8 +118,8 @@
         <fieldset class="form-group col-12 col-md-3">
             <label for="for_photoid">Foto Cédula de Identidad</label>
             <div class="custom-file">
-                <input type="file" name="photoid" class="custom-file-input size" id="customFileLang" lang="es" accept="image/*">
-                <label class="custom-file-label" for="customFileLang">Seleccionar Foto Cédula</label>
+                <input type="file" name="photoid" class="custom-file-input size" id="for_photoid" lang="es" accept="image/*">
+                <label class="custom-file-label" id="label_photoid" for="customFileLang">Seleccionar Foto Cédula</label>
             </div>
         </fieldset>
     </div>
@@ -129,8 +129,8 @@
         <fieldset class="form-group col-12 col-md-3">
             <label for="for_photo">Foto Frontal</label>
             <div class="custom-file">
-                <input type="file" name="photo" class="custom-file-input size" id="customFileLang" lang="es" accept="image/*">
-                <label class="custom-file-label" for="customFileLang">Seleccionar Foto Frontal</label>
+                <input type="file" name="photo" class="custom-file-input size" id="for_photo" lang="es" accept="image/*">
+                <label class="custom-file-label" id="label_photo" for="customFileLang">Seleccionar Foto Frontal</label>
             </div>
         </fieldset>
     </div>
@@ -229,10 +229,21 @@
         });*/
 
     
-        $('input[type="file"]').change(function(e) {
-        var fileName = e.target.files[0].name;
-        $('.custom-file-label').html(fileName);
+    //     $('input[type="file"]').change(function(e) {
+    //     var fileName = e.target.files[0].name;
+    //     $('.custom-file-label').html(fileName);
+    // });
 
+
+    $('#for_photoid').change(function(e) {
+        var fileName = e.target.files[0].name;
+        $('#label_photoid').html(fileName);
+    });
+
+
+    $('#for_photo').change(function(e) {
+        var fileName = e.target.files[0].name;
+        $('#label_photo').html(fileName);
     });
 
 
