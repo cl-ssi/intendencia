@@ -158,7 +158,7 @@
                         </li>
                         @endcan
 
-                        @can('Basket:')
+                        @can('Basket: user')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('help_basket.index')  }}">
                                 <i class="fas fa-shopping-basket"></i>

@@ -7,12 +7,11 @@
 
     
     
-    <h3>  Total Canastas Entregada por Usted </h3>
+    <h3>  Total de Canastas Entregadas </h3>
     <h4>  {{ $helpbaskets->count() }} </h4>
     
-    
     <div align="center">
-        <h2>Listado de sus Entregas</h2>
+        <h2>Consolidado de Entregas</h2>
     </div>
 
     <a class="btn btn-outline-success btn-sm mb-3" id="downloadLink" onclick="exportF(this)">Descargar en excel</a>
@@ -61,7 +60,7 @@
         var html_no_links = html.replace(/<a[^>]*>|<\/a>/g, ""); //remove if u want links in your table
         var url = 'data:application/vnd.ms-excel,' + escape(html_no_links); // Set your html table into url
         elem.setAttribute("href", url);
-        elem.setAttribute("download", "resporte_canastas.xls"); // Choose the file name
+        elem.setAttribute("download", "resporte_canastas_consolidado.xls"); // Choose the file name
         return false;
     }
 </script>

@@ -16,4 +16,12 @@
             <i class="fas fa-file-excel"></i> Reporte Canastas
         </a>
     </li>
+
+    @can('Basket: admin')
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('help_basket.excelall')  }}">
+            <i class="fas fa-file-excel"></i> Reporte Consolidado
+        </a>
+    </li>
+    @endcan
 </ul>

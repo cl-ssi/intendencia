@@ -221,7 +221,14 @@ class HelpBasketController extends Controller
 
     public function excel()
     {
-        $helpbaskets = HelpBasket::orderByDesc('updated_at')->get();;
+        $helpbaskets = HelpBasket::where('user_id',auth()->user()->id)->orderByDesc('updated_at')->get();
         return view('help_basket.excel', compact('helpbaskets'));
+    }
+
+
+    public function excelall()
+    {
+        $helpbaskets = HelpBasket::orderByDesc('updated_at')->get();
+        return view('help_basket.excelall', compact('helpbaskets'));
     }
 }
