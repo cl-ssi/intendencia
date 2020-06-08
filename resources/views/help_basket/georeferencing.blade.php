@@ -63,8 +63,10 @@ function addInfoBubble(map) {
     ui.addBubble(bubble);
   }, false);
   @foreach($helpbaskets as $helpbasket)
-  addMarkerToGroup(group, {lat:{{$helpbasket->latitude}}, lng:{{$helpbasket->longitude}}, svgMarkupRed}  ,
-  "<b>{{$helpbasket->fullName}}</b><br/> {{$helpbasket->identifier}}<br/> Entregado el: {{$helpbasket->created_at}}");  
+    if($helpbasket->latitude)
+    addMarkerToGroup(group, {lat:{{$helpbasket->latitude}}, lng:{{$helpbasket->longitude}}, svgMarkupRed}  ,
+    "<b>{{$helpbasket->fullName}}</b><br/> {{$helpbasket->identifier}}<br/> Entregado el: {{$helpbasket->created_at}}");
+    @endif
   @endforeach
 }
 
