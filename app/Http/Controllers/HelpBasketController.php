@@ -30,7 +30,7 @@ class HelpBasketController extends Controller
 
         $data = array();
 
-        $helpbaskets = HelpBasket::whereNotNull('latitude');
+        $helpbaskets = HelpBasket::all();
 
         foreach ($helpbaskets as $key => $helpbasket) {
             if ($helpbasket->latitude != null and $helpbasket->longitude != null) {
