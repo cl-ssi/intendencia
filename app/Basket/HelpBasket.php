@@ -17,7 +17,8 @@ class HelpBasket extends Model
         'latitude','longitude',
         'photo', 'photoid',
         'observations',
-        'commune_id'
+        'commune_id',
+        'institution_id'
     ];
 
     public function commune() {
@@ -26,6 +27,10 @@ class HelpBasket extends Model
 
     public function user() {
         return $this->belongsTo('App\User');
+    }
+
+    public function institution() {
+        return $this->belongsTo('\App\HelpBasket\Institution');
     }
 
     public function scopeSearch($query, $search)

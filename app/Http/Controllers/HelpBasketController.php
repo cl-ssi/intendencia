@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Basket\HelpBasket;
+use App\Basket\Institution;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Image;
@@ -16,11 +17,13 @@ class HelpBasketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, Institution $institution)
     {
         //
-        $helpbaskets = HelpBasket::search($request->input('search'))->orderByDesc('updated_at')->paginate(100);
-        return view('help_basket.index', compact('helpbaskets'));
+        
+        $helpbaskets = HelpBasket::where('institution_id', $institution->id)->search($request->input('search'))->orderByDesc('updated_at')->paginate(100);
+        //$helpbaskets = HelpBasket::where('institution_id', $institution->id);
+        return view('help_basket.index', compact('helpbaskets','institution'));
     }
 
 
@@ -48,14 +51,14 @@ class HelpBasketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
         //$communes = Commune::where('region_id', 1)->orderBy('name')->get();
 
         $communes = Commune::where('region_id',[env('REGION')])->orderBy('name')->get();
         //$communes = Commune::where('region_id',[config('app.REGION')])->orderBy('name')->get();
-        return view('help_basket.create', compact('communes'));
+        return view('help_basket.create', compact('communes','request'));
     }
 
     /**
@@ -71,13 +74,15 @@ class HelpBasketController extends Controller
         $integrityaddress = HelpBasket::where('address', $request->address)->where('number', $request->number)->where('department', $request->department)->exists();
         //dd($integrityrun);
         if ($integrityrun != null) {
-            session()->flash('danger', 'A este RUN ya se le entrego canasta familiar. Vuelva a ingresar datos');
-            return redirect()->route('help_basket.create');
+            session()->flash('danger', 'ERROR a este RUN ya se le entrego canasta familiar. Vuelva a ingresar datos');
+            // return redirect()->back();
+            return redirect()->route('help_basket.index',$request->institution_id);
         } else {
             if ($integrityaddress) {
                 //dd($integrityaddress->address);
-                session()->flash('danger', 'Ya fue entregado anteriormente a esta dirección');
-                return redirect()->route('help_basket.create');
+                session()->flash('danger', 'ERROR Ya fue entregado anteriormente a esta dirección');
+                //return redirect()->route('help_basket.create');
+                return redirect()->route('help_basket.index',$request->institution_id);
             } else {
                 $helpbaket = new HelpBasket($request->All());
                 $helpbaket->user_id = auth()->user()->id;
@@ -110,7 +115,7 @@ class HelpBasketController extends Controller
 
                 $helpbaket->save();
                 session()->flash('success', 'Se recepcionó la canasta exitosamente');
-                return redirect()->route('help_basket.index');
+                return redirect()->route('help_basket.index',$request->institution_id);
             }
         }
     }
@@ -180,7 +185,7 @@ class HelpBasketController extends Controller
 
         $helpBasket->save();
         session()->flash('success', 'Se actualizo los datos exitosamente');
-        return redirect()->route('help_basket.index');
+        return redirect()->route('help_basket.index',$request->institution_id);
     }
 
     /**
@@ -192,6 +197,7 @@ class HelpBasketController extends Controller
     public function destroy(HelpBasket $helpBasket)
     {
         //
+        
 
             
         if($helpBasket->photo)
@@ -208,7 +214,8 @@ class HelpBasketController extends Controller
 
         $helpBasket->delete();
         session()->flash('success', 'Entrega de Canaste Eliminada Exitosamente');
-        return redirect()->route('help_basket.index');
+        //return redirect()->route('help_basket.index',$request->institution);
+        return redirect()->back();
     }
 
 

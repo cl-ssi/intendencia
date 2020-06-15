@@ -74,7 +74,8 @@ Route::resource('epp','EppController')->middleware('auth');
 
 
 Route::prefix('help_basket')->name('help_basket.')->middleware('auth')->group(function () {
-    Route::get('/', 'HelpBasketController@index')->name('index');
+    Route::get('/index/{institution?}','HelpBasketController@index')->name('index');
+    //Route::get('/', 'HelpBasketController@index')->name('index');
     Route::get('/create', 'HelpBasketController@create')->name('create');
     Route::get('/georeferencing', 'HelpBasketController@georeferencing')->name('georeferencing');
     Route::post('/store', 'HelpBasketController@store')->name('store');

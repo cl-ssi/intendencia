@@ -158,14 +158,42 @@
                         </li>
                         @endcan
 
-                        @can('Basket: user')
-                        <li class="nav-item">
+
+                        
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-shopping-basket"></i>
+                                Canasta
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                <!-- <a class="dropdown-item" href="{{ route('help_basket.index')  }}">Examenes externos</a>
+                                
+                                <a class="dropdown-item" href="{{ route('help_basket.index')  }}">Inmunoglobulinas</a> -->
+
+                                @php
+                                $institutions = App\Basket\Institution::All();
+                                @endphp
+
+                                @foreach($institutions as $institution)
+                                <a class="dropdown-item" href="{{ route('help_basket.index',$institution) }}">{{ $institution->name }}</a>
+                                @endforeach
+                                
+                            </div>
+                        </li>
+                        
+                        <!-- @can('Basket: user')
+                        <li class="nav-item dropdown">
                             <a class="nav-link" href="{{ route('help_basket.index')  }}">
                                 <i class="fas fa-shopping-basket"></i>
                                 Canasta
                             </a>
                         </li>
-                        @endcan
+                        @endcan -->
+
+
+                        
 
 
                         @canany(['Report: positives','Report: other','Report: historical','Report: exams with result','Report: gestants','Report: positives demographics','Report: residences'])
