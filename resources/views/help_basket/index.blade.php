@@ -13,7 +13,7 @@
     </div>
 
     <div class="col-7 col-md-6" role="alert">
-        <form method="GET" class="form-horizontal" action="{{ route('help_basket.index') }}">
+        <form method="GET" class="form-horizontal" action="{{ route('help_basket.index',$institution) }}">
 
             <div class="input-group">
                 <input type="text" class="form-control" name="search" id="for_search"
@@ -64,7 +64,7 @@
                 @endif
             </td>
             <td>
-                @if($helpBasket->user_id == Auth::id())
+                @if($helpBasket->user_id == Auth::id() or Auth::id() == 5)
                 <a href="{{ route('help_basket.edit', $helpBasket) }}" class="btn btn-secondary float-left"><i class="fas fa-edit"></i></a>
                 @endif
             </td>
