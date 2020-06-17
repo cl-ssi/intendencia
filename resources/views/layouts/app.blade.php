@@ -179,6 +179,12 @@
                                 @foreach($institutions as $institution)
                                 <a class="dropdown-item" href="{{ route('help_basket.index',$institution) }}">{{ $institution->name }}</a>
                                 @endforeach
+
+                                @can('Basket: admin')
+                                    <a class="dropdown-item" href="{{ route('help_basket.excelall')  }}">Excel Consolidado </a>
+                                @endcan
+
+
                                 
                             </div>
                         </li>

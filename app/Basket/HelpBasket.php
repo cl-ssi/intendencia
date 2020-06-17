@@ -30,7 +30,7 @@ class HelpBasket extends Model
     }
 
     public function institution() {
-        return $this->belongsTo('\App\HelpBasket\Institution');
+        return $this->belongsTo('App\Basket\Institution');
     }
 
     public function scopeSearch($query, $search)

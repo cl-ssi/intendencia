@@ -28,6 +28,7 @@
                     <th nowrap>Entregado Por</th>
                     <th nowrap>Entregado el</th>
                     <th nowrap>Observaciones</th>
+                    <th nowrap>Institución</th>
                 </tr>
             </thead>
 
@@ -42,6 +43,7 @@
                     <td nowrap>{{$helpBasket->user->name}}</td>
                     <td nowrap>{{$helpBasket->updated_at->format('d-m-Y H:i')}}</td>
                     <td nowrap>{{$helpBasket->observations}}</td>
+                    <td nowrap>{{($helpBasket->institution)?$helpBasket->institution->name:''}}</td>
                 </tr>
                 @endforeach
             </tbody>
