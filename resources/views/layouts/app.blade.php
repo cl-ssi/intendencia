@@ -182,6 +182,8 @@
 
                                 @can('Basket: admin')
                                     <a class="dropdown-item" href="{{ route('help_basket.excelall')  }}">Excel Consolidado </a>
+
+                                    <a class="dropdown-item" href="{{ route('help_basket.exceltest')  }}">Excel Test</a>
                                 @endcan
 
 
