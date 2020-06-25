@@ -5,7 +5,7 @@
 @include('help_basket.nav')
 
 @if(!isset($institution->id))
-<script>window.location = "int/home";</script>
+<script>window.location.href = "http://34.72.39.243/int/home";</script>
 @endif
 
 <h3 class="mb-3">Listado de Canasta Entregadas {{$institution->name}}</h3>
