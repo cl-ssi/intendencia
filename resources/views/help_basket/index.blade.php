@@ -4,6 +4,10 @@
 @section('content')
 @include('help_basket.nav')
 
+@if(!isset($institution->id))
+<script>window.location = "/home";</script>
+@endif
+
 <h3 class="mb-3">Listado de Canasta Entregadas {{$institution->name}}</h3>
 <div class="row">
     <div class="col-4 col-md-2">
