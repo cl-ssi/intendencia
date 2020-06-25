@@ -5,7 +5,7 @@
 @include('help_basket.nav')
 
 @if(!isset($institution->id))
-<script>window.location = "/home";</script>
+<script>window.location = "int/home";</script>
 @endif
 
 <h3 class="mb-3">Listado de Canasta Entregadas {{$institution->name}}</h3>
