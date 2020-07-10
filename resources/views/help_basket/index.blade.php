@@ -68,7 +68,7 @@
                 @endif
             </td>
             <td>
-                @if($helpBasket->user_id == Auth::id() or Auth::id() == 5)
+                @if($helpBasket->user_id == Auth::id() or Auth::id() == 5 or Auth::id() == 4)
                 <a href="{{ route('help_basket.edit', ['helpBasket' => $helpBasket] ) }}" class="btn btn-secondary float-left"><i class="fas fa-edit"></i></a>
                 @endif
             </td>
