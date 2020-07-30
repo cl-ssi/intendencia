@@ -240,6 +240,13 @@ class HelpBasketController extends Controller
     }
 
 
+    public function excelintendencia()
+    {
+        $helpbaskets = HelpBasket::where('institution_id',1)->orderByDesc('updated_at')->get();
+        return view('help_basket.excelall', compact('helpbaskets'));
+    }
+
+
 
     public function exceltest()
     {

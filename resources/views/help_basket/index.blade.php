@@ -11,9 +11,11 @@
 <h3 class="mb-3">Listado de Canasta Entregadas {{$institution->name}}</h3>
 <div class="row">
     <div class="col-4 col-md-2">
+    @canany(['Basket: admin','Basket: user'])
     <a class="btn btn-primary mb-3" href="{{ route('help_basket.create') }}?institution={{$institution->id}}">
         Entregar Canasta {{$institution->name}}
     </a>
+    @endcan
     </div>
 
     <div class="col-7 col-md-6" role="alert">
@@ -44,8 +46,10 @@
             <th>Entregado el</th>
             <th>Cédula</th>
             <th>Foto</th>
+            @canany(['Basket: admin','Basket: user'])
             <th>Editar</th>            
             <th>Eliminar</th>
+            @endcan
         </tr>
     </thead>
 
@@ -67,6 +71,7 @@
                 <img src="{{ route('help_basket.download', $helpBasket->photo)  }}" width="150" height="100" />
                 @endif
             </td>
+            @canany(['Basket: admin','Basket: user'])
             <td>
                 @if($helpBasket->user_id == Auth::id() or Auth::id() == 5 or Auth::id() == 4)
                 <a href="{{ route('help_basket.edit', ['helpBasket' => $helpBasket] ) }}" class="btn btn-secondary float-left"><i class="fas fa-edit"></i></a>
@@ -81,6 +86,7 @@
                     </form>
                 @endif
             </td>
+            @endcan
         </tr>
         @endforeach
     </tbody>

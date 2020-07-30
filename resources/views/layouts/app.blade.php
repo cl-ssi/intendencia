@@ -176,13 +176,30 @@
                                 $institutions = App\Basket\Institution::All();
                                 @endphp
 
+
+                                @canany(['Basket: admin','Basket: user'])
                                 @foreach($institutions as $institution)
                                 <a class="dropdown-item" href="{{ route('help_basket.index',$institution) }}">{{ $institution->name }}</a>
                                 @endforeach
+                                @endcan
+
+                                @can('Basket: intendencia')
+                                <a class="dropdown-item" href="{{ route('help_basket.index',1) }}">Intendencia</a>
+                                @endcan
+
+
+                                @canany(['Basket: admin','Basket: intendencia'])
+                                    <a class="dropdown-item" href="{{ route('help_basket.excelintendencia')  }}">Excel Intendencia </a>
+                                @endcan
 
                                 @can('Basket: admin')
                                     <a class="dropdown-item" href="{{ route('help_basket.excelall')  }}">Excel Consolidado </a>                                    
                                 @endcan
+
+
+                                
+
+                                
 
 
                                 
