@@ -86,6 +86,7 @@ Route::prefix('help_basket')->name('help_basket.')->middleware('auth')->group(fu
     Route::get('/excel','HelpBasketController@excel')->name('excel');
     Route::get('/excelall','HelpBasketController@excelall')->name('excelall');
     Route::get('/excelintendencia','HelpBasketController@excelintendencia')->name('excelintendencia');
+    Route::get('/excelgore','HelpBasketController@exceligore')->name('excelgore');
     Route::get('/exceltest','HelpBasketController@exceltest')->name('exceltest');
 
 });

@@ -187,9 +187,17 @@
                                 <a class="dropdown-item" href="{{ route('help_basket.index',1) }}">Intendencia</a>
                                 @endcan
 
+                                @can('Basket: gore')
+                                <a class="dropdown-item" href="{{ route('help_basket.index',2) }}">Gore</a>
+                                @endcan
+
 
                                 @canany(['Basket: admin','Basket: intendencia'])
                                     <a class="dropdown-item" href="{{ route('help_basket.excelintendencia')  }}">Excel Intendencia </a>
+                                @endcan
+
+                                @canany(['Basket: admin','Basket: gore'])
+                                    <a class="dropdown-item" href="{{ route('help_basket.excelgore')  }}">Excel Gore </a>
                                 @endcan
 
                                 @can('Basket: admin')

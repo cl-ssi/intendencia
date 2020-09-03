@@ -246,6 +246,12 @@ class HelpBasketController extends Controller
         return view('help_basket.excelall', compact('helpbaskets'));
     }
 
+    public function excelgore()
+    {
+        $helpbaskets = HelpBasket::where('institution_id',2)->orderByDesc('updated_at')->get();
+        return view('help_basket.excelall', compact('helpbaskets'));
+    }
+
 
 
     public function exceltest()
